@@ -24,7 +24,7 @@ gulp.task('inject', function(){
           './public/js/*.js'], {read: false});
     
     var injectOptions = {
-        igonorePath: '/public'
+        ignorePath: '/public'
     };
     
     var options = {
