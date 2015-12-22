@@ -1,0 +1,12 @@
+//-var list = ["some","many","not so many", "few", "fewer","less","ver less"]
+html
+    head
+        title MyAPP
+    body(class='myclass')
+        h1(id="myID") My App
+        p
+            h3 Hella how are you?
+            
+            ul
+                each val in list
+                    li= val
