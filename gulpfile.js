@@ -44,8 +44,15 @@ gulp.task('serve', ['style', 'inject'], function(){
         script: 'app.js',
         delayTime: 1,
         env: {
-            
-        }
+            'PORT':  process.env.PORT
+        },
+        watch: jsFiles
     }
+    
+    return nodemon(options)
+        .on('restart', function(ev){
+            console.log('restarting.....');
+            
+        })
     
 })
