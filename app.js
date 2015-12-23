@@ -4,7 +4,17 @@ var app = express();
 
 var port = process.env.PORT;
 
-var bookRouter = require('./routes/bookRoutes');
+var nav = [
+                    {Link: '/Books',
+                     Text: 'Book'
+                    },
+                    {Link: '/Authors',
+                     Text: 'Authors'
+                    }]
+
+
+var bookRouter = require('./routes/bookRoutes')(nav);
+var adminRouter = require('./routes/adminRoutes')(nav);
 
 //var bookRouter = express.Router();
 
@@ -20,8 +30,9 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 
-app.use('/Books', bookRouter);
 
+app.use('/Books', bookRouter);
+app.use('/Admin', adminRouter);
 
 app.get('/', function(req,res){
     res.render('index',{title: 'hello from AMARS!', nav: [
