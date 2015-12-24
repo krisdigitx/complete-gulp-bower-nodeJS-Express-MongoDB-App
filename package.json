@@ -14,7 +14,8 @@
     "express-session": "^1.12.0",
     "jade": "^1.11.0",
     "mongodb": "^2.0.46",
-    "passport": "^0.3.0"
+    "passport": "^0.3.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
