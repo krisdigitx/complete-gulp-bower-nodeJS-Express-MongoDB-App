@@ -22,9 +22,14 @@ var adminRouter = require('./routes/adminRoutes')(nav);
 var authRouter = require('./routes/authRoutes')(nav);
 //var bookRouter = express.Router();
 
+//middleware
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({secret: 'library'}));
+require('./config/passport')(app);
+
 app.set('views', './views');
 
 //var handlebars = require('express-handlebars')
