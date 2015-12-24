@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 
 var app = express();
 
@@ -15,11 +16,12 @@ var nav = [
 
 var bookRouter = require('./routes/bookRoutes')(nav);
 var adminRouter = require('./routes/adminRoutes')(nav);
-
+var authRouter = require('./routes/authRoutes')(nav);
 //var bookRouter = express.Router();
 
 app.use(express.static('public'));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.set('views', './views');
 
 //var handlebars = require('express-handlebars')
@@ -33,6 +35,7 @@ app.set('view engine', 'ejs');
 
 app.use('/Books', bookRouter);
 app.use('/Admin', adminRouter);
+app.use('/Auth', authRouter);
 
 app.get('/', function(req,res){
     res.render('index',{title: 'hello from AMARS!', nav: [

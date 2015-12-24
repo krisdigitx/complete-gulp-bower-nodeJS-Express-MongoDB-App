@@ -31,7 +31,7 @@ var router = function(nav){
     
     mongodb.connect(url, function(err, db){
         var collection = db.collection('books');
-        collection.findOne({_id: id}).toArray(function (err, results){
+        collection.findOne({_id: id} , function (err, results){
         res.render('bookView',{
                         title: 'Books!', 
                         nav: nav,
@@ -41,7 +41,7 @@ var router = function(nav){
         });
     
     });
-    
+    });   
     return bookRouter;
 };
 
